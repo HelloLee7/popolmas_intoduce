@@ -189,43 +189,54 @@ header {
     color: #444;
 }
 
+/*-------------------------*/
+
 #third-section {
-    padding: 20px;
-    background-color: #fff; /* 배경색 */
-    color: #000;
-    text-align: center; /* 내용 가운데 정렬 */
-  }
-  
-  .image-container {
-    margin-bottom: 20px; /* 이미지 아래쪽 여백 */
-  }
-  
-  .sample-image {
-    width: 80%; /* 이미지 너비 (원하는 대로) */
-    max-width: 600px; /* 최대 너비 (원하는 대로) */
-    height: auto;
-    border-radius: 10px; /* 둥근 모서리 (선택 사항) */
-    display: block; /* 이미지 아래쪽 여백 제거 */
-    margin: 0 auto; /* 가로 중앙 정렬 */
-  }
-  
-  .text-container {
-    text-align: left; /* 텍스트 왼쪽 정렬 */
-    max-width: 800px;  /* 텍스트 최대 너비 제한 */
-    margin: 0 auto;     /* 가로 중앙 정렬 */
-  
-  }
-  
-  #third-section .text-container p {
-      margin-bottom: 1rem;
-      font-size: 1rem;
-      line-height: 1.5;
-      color: #333;
-  }
-  #third-section .text-container h2{
-          margin-top: 2rem;
-      margin-bottom: 1rem;
-  }
+  padding: 20px;
+  background-color: #fff; /* 배경색 */
+  color: #000;
+  text-align: center; /* 내용 가운데 정렬 */
+}
+
+.image-container {
+  margin-bottom: 20px; /* 이미지 아래쪽 여백 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 애니메이션 효과 */
+}
+
+.sample-image {
+  width: 80%; /* 이미지 너비 (원하는 대로) */
+  max-width: 600px; /* 최대 너비 (원하는 대로) */
+  height: auto;
+  border-radius: 10px; /* 둥근 모서리 (선택 사항) */
+  display: block; /* 이미지 아래쪽 여백 제거 */
+  margin: 0 auto; /* 가로 중앙 정렬 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 애니메이션 효과 */
+}
+
+.text-container {
+  text-align: left; /* 텍스트 왼쪽 정렬 */
+  max-width: 800px;  /* 텍스트 최대 너비 제한 */
+  margin: 0 auto;     /* 가로 중앙 정렬 */
+}
+
+#third-section .text-container p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+#third-section .text-container h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* 호버 시 적용될 효과 */
+.sample-image:hover {
+  transform: scale(1.05); /* 이미지를 약간 확대 */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* 그림자 추가 */
+}
+
 
 
   /*-------------------------*/
