@@ -1,0 +1,3 @@
+pip install flask
+
+npm install gsap (이건 필요없을 수도 있음)

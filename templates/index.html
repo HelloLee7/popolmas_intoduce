@@ -1,0 +1,38 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Search bar -->
+    <header>
+        <div class="search-container">
+            <input type="text" placeholder="Search...">
+        </div>
+    </header>
+
+    <!-- 첫 번째 섹션 (first.html 포함) -->
+    {% include 'first.html' %}
+
+    <!-- Scroll to next section -->
+    <section id="next-section">
+        <h2>이정희란 누구인가.....?</h2>
+    </section>
+
+    {% include 'second.html' %}
+
+    <section id="next-section">
+        <h2>Hello Worlds</h2>
+    </section>
+
+    {% include 'thirds.html' %}
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
