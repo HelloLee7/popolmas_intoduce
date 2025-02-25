@@ -190,42 +190,21 @@ header {
 }
 
 /*-------------------------*/
-
+/* --------------------------------
+/* =============================
+   1) 섹션 및 텍스트 스타일
+============================= */
 #third-section {
   padding: 20px;
-  background-color: #fff; /* 배경색 */
+  background-color: #fff;
   color: #000;
-  text-align: center; /* 내용 가운데 정렬 */
-}
-
-.image-container {
-  margin-bottom: 20px; /* 이미지 아래쪽 여백 */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 애니메이션 효과 */
-}
-
-.sample-image {
-  width: 300px;/* 이미지 너비 (원하는 대로) */
-  max-width: 600px; /* 최대 너비 (원하는 대로) */
-  height: 200px; 
-  border-radius: 10px; /* 둥근 모서리 (선택 사항) */
-  display: block; /* 이미지 아래쪽 여백 제거 */
-  margin: 0 auto; /* 가로 중앙 정렬 */
-  object-fit: cover; 
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 애니메이션 효과 */
-}
-/* 호버 시 적용될 효과 */
-.sample-image:hover {
-  width: 70%;
-  height: auto;
-  transform: scale(1.05); /* 이미지를 약간 확대 */
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* 그림자 추가 */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 애니메이션 효과 */
+  text-align: center;
 }
 
 .text-container {
-  text-align: left; /* 텍스트 왼쪽 정렬 */
-  max-width: 800px;  /* 텍스트 최대 너비 제한 */
-  margin: 0 auto;     /* 가로 중앙 정렬 */
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 #third-section .text-container p {
@@ -239,6 +218,83 @@ header {
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
+
+/* =============================
+   2) 이미지 컨테이너
+============================= */
+.image-container {
+  position: relative;
+  margin-bottom: 20px;
+  /* overflow: hidden; // 필요 시 사용 */
+}
+
+/* =============================
+   3) 이미지 기본 스타일
+============================= */
+/* 
+   - 기본 z-index는 1(또는 auto)로 두어서
+     오버레이보다 뒤에 위치하게 함
+*/
+.sample-image {
+  width: 300px;
+  max-width: 600px;
+  height: 200px;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 1; /* <--- 오버레이보다 낮게(중요) */
+}
+
+/* 
+   3-1) 호버 시 기존 확대 로직 유지
+   - width: 70% + transform: scale(1.05)
+*/
+.sample-image:hover {
+  width: 70%;
+  height: auto;
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* =============================
+   4) 오버레이 (화면 전체 덮음)
+============================= */
+/* 
+   - 기본적으로 투명(opacity: 0)
+   - position: fixed로 전체 화면 덮기
+   - z-index: 2로 설정해,
+     .sample-image(z-index:1)보다 위,
+     호버된 이미지는 .image-container:hover .sample-image { z-index: 3 }로 처리
+*/
+.dark-overlay {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6); /* 투명도 조절 */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 2; /* <--- 이미지(기본 z-index:1)보다 위 */
+}
+
+/* 
+   4-1) .image-container:hover 시 
+        오버레이를 표시(opacity:1)
+        + 호버된 이미지 z-index 올리기(3)
+*/
+.image-container:hover .dark-overlay {
+  opacity: 1;
+}
+
+.image-container:hover .sample-image {
+  z-index: 3; /* <--- 오버레이(z-index:2)보다 위 */
+}
+
 
 
   /*-------------------------*/
