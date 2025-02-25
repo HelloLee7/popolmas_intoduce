@@ -53,13 +53,12 @@ document.addEventListener("DOMContentLoaded", () => {
   
       navigator.clipboard.writeText(email).then(() => {
         alert('Email address copied: ' + email);
-         iconSpan.textContent = '✅'; // 복사 성공 시 아이콘 변경
-  
+        iconSpan.innerHTML = '<img src="/images/checked.png" alt="Checked" style="width: 16px; height: 16px;">';  
          // (선택 사항) 일정 시간 후 원래 아이콘으로 되돌리기
          setTimeout(() => {
-           iconSpan.textContent = '✉';
-         }, 2000); // 2초 후
-  
+          iconSpan.innerHTML = '<img src="images/gmail.png" alt="Email Icon" style="width: 16px; height: 16px;">';
+        }, 2000);  // 2초 후 복원
+        
       }).catch(err => {
         console.error('Could not copy email: ', err);
         alert('Failed to copy email address.');

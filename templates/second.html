@@ -4,8 +4,11 @@
         <!-- 아이콘 컨테이너 위치 변경 -->
         <div class="icon-container">
           <a href="#" id="copy-email" data-email="ggp05158@naver.com">
-            <span class="email-icon">✉</span>
+            <span class="email-icon">
+              <img src="{{ url_for('static', filename='images/gmail.png') }}" alt="Email Icon" class="Email Icon-image" style="width: 26px; height: 26px; margin-left: 150px;">
+            </span>
           </a>
+          
         </div>
       <div class="text-container">
           <!--f 와 e 아이콘은 필요없으니 삭제-->
