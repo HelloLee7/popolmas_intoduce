@@ -65,14 +65,3 @@ document.getElementById('copy-email').addEventListener('click', function(event) 
     });
   });
 
-// JavaScript (추가 기능, 선택사항)
-document.querySelectorAll('.sample-image').forEach(image => {
-image.addEventListener('mouseenter', () => {
-    image.style.transform = 'scale(1.1)'; // 이미지 확대
-    image.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.4)';
-});
-image.addEventListener('mouseleave', () => {
-    image.style.transform = 'scale(1)'; // 원래 크기로 돌아감
-    image.style.boxShadow = '0 8px 15px rgba(0, 0, 0, 0.3)';
-});
-});
